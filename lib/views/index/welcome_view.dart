@@ -73,7 +73,7 @@ class _WelcomePageViewState extends State<WelcomePageView> {
                           borderRadius: BorderRadius.circular(5),
                         ),
                         minimumSize: const Size(120, 58),
-                        backgroundColor: AppColor().offWhite,
+                        backgroundColor: AppColor().milkWhite,
                         disabledBackgroundColor:
                             const Color.fromRGBO(31, 48, 94, .5),
                         elevation: 5,
@@ -120,6 +120,7 @@ class _WelcomePageViewState extends State<WelcomePageView> {
                             Border.all(color: Colors.grey.shade300, width: 2),
                         image: const DecorationImage(
                           image: AssetImage('assets/images/google-icon.png'),
+                          scale: 20,
                         ),
                       ),
                     ),
@@ -138,7 +139,7 @@ class _WelcomePageViewState extends State<WelcomePageView> {
                             Border.all(color: Colors.grey.shade300, width: 2),
                         image: const DecorationImage(
                           image: AssetImage('assets/images/apple-icon.png'),
-                          scale: 8,
+                          scale: 20,
                         ),
                       ),
                     ),
