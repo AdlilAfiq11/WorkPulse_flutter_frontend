@@ -27,15 +27,9 @@ class _JobsPageViewState extends State<JobsPageView>
   @override
   Widget build(BuildContext context) {
     Widget jobCategories() {
-      Widget appBarTitle = const Padding(
-        padding: EdgeInsets.only(left: 8.0),
-        child: Text(
-          "Jobs",
-          style: TextStyle(
-            fontSize: 22,
-            fontWeight: FontWeight.w600,
-          ),
-        ),
+      Widget appBarTitle = const Text(
+        "Jobs",
+        style: TextStyle(fontWeight: FontWeight.w500),
       );
 
       return DefaultTabController(
