@@ -94,7 +94,7 @@ class _JobsPageViewState extends State<JobsPageView>
     }
 
     return Scaffold(
-      backgroundColor: AppColor().offWhite,
+      backgroundColor: AppColor().lightGrey,
       body: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
