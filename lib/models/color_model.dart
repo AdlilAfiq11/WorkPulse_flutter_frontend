@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 class AppColor {
   Color matteBlack = const Color.fromRGBO(40, 40, 43, 1);
   Color ceruleanBlue = const Color.fromRGBO(42, 82, 190, 1);
+  Color blueZodiac = const Color.fromRGBO(31, 48, 94, 1);
   Color electricIndigo = const Color.fromRGBO(111, 0, 255, 1);
+  Color lightPurple = const Color.fromRGBO(244, 241, 253, 1);
   Color blueViolet = const Color.fromRGBO(68, 29, 226, 1);
   Color yaleBlue = const Color.fromRGBO(0, 66, 140, 1);
   Color airForceBlue = const Color.fromRGBO(93, 138, 168, 1);
