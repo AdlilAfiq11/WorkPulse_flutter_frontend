@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:workpulse_flutter_frontend/components/job_component.dart';
 import 'package:workpulse_flutter_frontend/models/color_model.dart';
 
 class JobsPageView extends StatefulWidget {
@@ -10,6 +11,10 @@ class JobsPageView extends StatefulWidget {
 
 class _JobsPageViewState extends State<JobsPageView>
     with TickerProviderStateMixin {
+  //TODO: Make a list with the type model
+  late List<String> activeJobList = List.empty(growable: true);
+  late List<String> pastJobList = List.empty(growable: true);
+
   late TabController _tabController;
 
   @override
@@ -66,29 +71,39 @@ class _JobsPageViewState extends State<JobsPageView>
                 ),
               ];
             },
-            body: TabBarView(
-              controller: _tabController,
-              physics: const NeverScrollableScrollPhysics(),
-              children: <Widget>[
-                Container(
-                  color: AppColor().lightGrey,
-                  child: const Center(
-                    child: Text('All Jobs'),
+            body: MediaQuery.removePadding(
+              removeTop: true,
+              context: context,
+              child: TabBarView(
+                controller: _tabController,
+                physics: const NeverScrollableScrollPhysics(),
+                children: <Widget>[
+                  Container(
+                    color: AppColor().lightGrey,
+                    child: const Center(
+                      child: Text('All Jobs'),
+                    ),
                   ),
-                ),
-                Container(
-                  color: AppColor().lightGrey,
-                  child: const Center(
-                    child: Text('Active Jobs'),
+                  Container(
+                    color: AppColor().lightGrey,
+                    child: Center(
+                      child: ListView.builder(
+                        itemCount: 3,
+                        itemBuilder: ((context, index) => Padding(
+                              padding: const EdgeInsets.only(bottom: 15),
+                              child: createJobCard(context),
+                            )),
+                      ),
+                    ),
                   ),
-                ),
-                Container(
-                  color: AppColor().lightGrey,
-                  child: const Center(
-                    child: Text('Past Jobs'),
-                  ),
-                )
-              ],
+                  Container(
+                    color: AppColor().lightGrey,
+                    child: const Center(
+                      child: Text('Past Jobs'),
+                    ),
+                  )
+                ],
+              ),
             )),
       );
     }
