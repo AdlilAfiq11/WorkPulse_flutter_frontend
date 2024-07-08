@@ -23,7 +23,10 @@ class _HomePageViewState extends State<HomePageView> {
                   height: 70,
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: const BorderRadius.all(Radius.circular(8)),
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(8),
+                      bottomLeft: Radius.circular(8),
+                    ),
                     border: Border(
                       right: BorderSide(
                         color: AppColor().lightGrey,
@@ -63,6 +66,10 @@ class _HomePageViewState extends State<HomePageView> {
                   height: 70,
                   decoration: const BoxDecoration(
                     color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(8),
+                      bottomRight: Radius.circular(8),
+                    ),
                   ),
                   child: Padding(
                     padding: const EdgeInsets.all(7.0),
@@ -98,6 +105,7 @@ class _HomePageViewState extends State<HomePageView> {
     Widget shareLink() => Padding(
           padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
           child: ListTile(
+            dense: true,
             onTap: () {},
             tileColor: AppColor().blueViolet,
             shape: RoundedRectangleBorder(
@@ -143,6 +151,7 @@ class _HomePageViewState extends State<HomePageView> {
           'Performance',
           style: TextStyle(fontWeight: FontWeight.w500),
         ),
+        backgroundColor: AppColor().lightGrey,
         automaticallyImplyLeading: false,
       ),
       body: Column(
@@ -159,7 +168,7 @@ class _HomePageViewState extends State<HomePageView> {
             child: ListView.builder(
               itemCount: 4,
               itemBuilder: ((context, index) => Padding(
-                    padding: const EdgeInsets.only(bottom: 20),
+                    padding: const EdgeInsets.only(bottom: 15),
                     child: createJobCard(context),
                   )),
             ),
