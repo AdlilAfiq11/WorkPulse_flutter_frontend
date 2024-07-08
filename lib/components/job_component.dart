@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:workpulse_flutter_frontend/models/color_model.dart';
+import 'package:workpulse_flutter_frontend/utils/main_utils.dart';
 import 'package:workpulse_flutter_frontend/views/jobs/job_details.dart';
 
+//TODO:Job Card
 Widget createJobCard(BuildContext context) {
   return InkWell(
-    onTap: () => Navigator.push(context,
-        MaterialPageRoute(builder: (context) => const JobDetailsView())),
+    onTap: () =>
+        Navigator.push(context, SlideRoute(page: const JobDetailsView())),
     child: Container(
       height: 240,
       color: Colors.white,
@@ -60,13 +62,15 @@ Widget createJobCard(BuildContext context) {
                   child: Container(
                     height: 30,
                     decoration: BoxDecoration(
-                      color: Colors.blue.shade200,
+                      color: Colors.blue.shade100,
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: Center(
                         child: Text(
                       'On-going',
-                      style: TextStyle(color: AppColor().blueZodiac),
+                      style: TextStyle(
+                        color: Colors.blue.shade700,
+                      ),
                     )),
                   ),
                 ),

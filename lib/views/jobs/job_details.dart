@@ -1,6 +1,11 @@
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:workpulse_flutter_frontend/models/color_model.dart';
+import 'package:workpulse_flutter_frontend/utils/main_utils.dart';
+import 'package:workpulse_flutter_frontend/views/jobs/job_pos.dart';
+
+//TODO: Create component for service
+//TODO: Confirm back with jin for "Reschedule", "Job Status" & Add Service
 
 class JobDetailsView extends StatefulWidget {
   const JobDetailsView({super.key});
@@ -10,6 +15,33 @@ class JobDetailsView extends StatefulWidget {
 }
 
 class _JobDetailsViewState extends State<JobDetailsView> {
+  // Start Job Button
+  Widget startButton() => Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            side: BorderSide(
+              color: AppColor().blueViolet,
+            ),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(5),
+            ),
+            minimumSize: const Size(120, 58),
+            backgroundColor: AppColor().blueViolet,
+            disabledBackgroundColor: const Color.fromRGBO(31, 48, 94, .5),
+            elevation: 5,
+          ),
+          onPressed: () => photoAlert(),
+          child: const Text(
+            'Start Job',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 17,
+            ),
+          ),
+        ),
+      );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,17 +49,23 @@ class _JobDetailsViewState extends State<JobDetailsView> {
       appBar: AppBar(
         title: const Text(
           '20221128-757145',
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 18,
+          ),
+        ),
+        iconTheme: const IconThemeData(
+          color: Colors.white,
         ),
         backgroundColor: AppColor().blueViolet,
-        elevation: 5,
+        scrolledUnderElevation: 5,
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
             Container(
-              height: 185,
               color: Colors.white,
+              width: double.infinity,
               child: Padding(
                 padding: const EdgeInsets.all(10),
                 child: Column(
@@ -42,7 +80,7 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                             child: Text(
                               'Job Details',
                               style: TextStyle(
-                                fontSize: 17,
+                                fontSize: 16,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -90,8 +128,7 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                               'Reschedule',
                               style: TextStyle(
                                 color: AppColor().electricIndigo,
-                                fontSize: 17,
-                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
                               ),
                             ),
                           ),
@@ -119,11 +156,11 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                         Expanded(
                           flex: 3,
                           child: CircleAvatar(
-                            radius: 28,
+                            radius: 25,
                             backgroundColor: AppColor().lightPurple,
                             child: Icon(
                               Icons.map_outlined,
-                              size: 27,
+                              size: 25,
                               color: AppColor().electricIndigo,
                             ),
                           ),
@@ -134,10 +171,10 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                 ),
               ),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 15),
             Container(
-              height: 130,
               color: Colors.white,
+              width: double.infinity,
               child: Padding(
                 padding: const EdgeInsets.all(10),
                 child: Column(
@@ -149,7 +186,7 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                           child: Text(
                             'Customer Details',
                             style: TextStyle(
-                              fontSize: 17,
+                              fontSize: 16,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -162,8 +199,7 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                               'View Details',
                               style: TextStyle(
                                 color: AppColor().electricIndigo,
-                                fontSize: 17,
-                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
                               ),
                             ),
                           ),
@@ -189,11 +225,11 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                         Expanded(
                           flex: 3,
                           child: CircleAvatar(
-                            radius: 28,
+                            radius: 25,
                             backgroundColor: AppColor().lightPurple,
                             child: Icon(
                               Icons.call,
-                              size: 27,
+                              size: 25,
                               color: AppColor().electricIndigo,
                             ),
                           ),
@@ -204,10 +240,10 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                 ),
               ),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 15),
             Container(
-              height: 300,
               color: Colors.white,
+              width: double.infinity,
               child: Padding(
                 padding: const EdgeInsets.all(10),
                 child: Column(
@@ -220,7 +256,7 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                             child: Text(
                               'Service',
                               style: TextStyle(
-                                fontSize: 17,
+                                fontSize: 16,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -233,8 +269,7 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                                 'Add Service',
                                 style: TextStyle(
                                   color: AppColor().electricIndigo,
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
                                 ),
                               ),
                             ),
@@ -246,10 +281,10 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                 ),
               ),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 15),
             Container(
-              height: 90,
               color: Colors.white,
+              width: double.infinity,
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
                 child: Column(
@@ -260,7 +295,7 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                       child: Text(
                         'Remark',
                         style: TextStyle(
-                          fontSize: 17,
+                          fontSize: 16,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -289,10 +324,10 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                 ),
               ),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 15),
             Container(
-              height: 90,
               color: Colors.white,
+              width: double.infinity,
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
                 child: Column(
@@ -303,7 +338,7 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                       child: Text(
                         'Payment Details',
                         style: TextStyle(
-                          fontSize: 17,
+                          fontSize: 16,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -359,7 +394,7 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                   child: Text(
                     'Cancel Job',
                     style: TextStyle(
-                      fontSize: 18,
+                      fontSize: 17,
                       color: Colors.red.shade400,
                     ),
                   )),
@@ -367,32 +402,80 @@ class _JobDetailsViewState extends State<JobDetailsView> {
           ],
         ),
       ),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            side: BorderSide(
-              color: AppColor().blueViolet,
-            ),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(5),
-            ),
-            minimumSize: const Size(120, 58),
-            backgroundColor: AppColor().blueViolet,
-            disabledBackgroundColor: const Color.fromRGBO(31, 48, 94, .5),
-            elevation: 5,
-          ),
-          onPressed: () {},
-          child: const Text(
-            'Start Job',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
+      bottomNavigationBar: startButton(),
+    );
+  }
+
+  photoAlert() {
+    return showModalBottomSheet(
+      showDragHandle: true,
+      backgroundColor: Colors.white,
+      elevation: 5.0,
+      context: context,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(30.0)),
       ),
+      builder: (context) {
+        return SizedBox(
+          width: double.infinity,
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(18, 10, 18, 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                const SizedBox(height: 5),
+                Text(
+                  'Have you taken a photo of before service condition?',
+                  style: TextStyle(
+                    color: AppColor().matteBlack,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                  ),
+                  textAlign: TextAlign.justify,
+                ),
+                const SizedBox(height: 15),
+                Text(
+                  'Uploading photo will help to avoid any unnecessary dispute from customer. It can save you from a lot of trouble later on.',
+                  style: TextStyle(
+                    color: Colors.grey.shade700,
+                    fontSize: 15,
+                  ),
+                  textAlign: TextAlign.justify,
+                ),
+                const SizedBox(height: 15),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    side: BorderSide(
+                      color: AppColor().blueViolet,
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                    minimumSize: const Size(double.infinity, 58),
+                    backgroundColor: AppColor().blueViolet,
+                    disabledBackgroundColor:
+                        const Color.fromRGBO(31, 48, 94, .5),
+                    elevation: 5,
+                  ),
+                  onPressed: () {
+                    Navigator.pop(context);
+                    Navigator.push(
+                        context, SlideRoute(page: const ProofofServiceView()));
+                  },
+                  child: const Text(
+                    'Ok, I got it',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 17,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 }
