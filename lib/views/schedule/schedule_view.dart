@@ -12,7 +12,7 @@ class _SchedulePageViewState extends State<SchedulePageView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColor().lightGrey,
+      backgroundColor: AppColor.lightGrey,
       body: const Center(
         child: Text('Schedule Page'),
       ),

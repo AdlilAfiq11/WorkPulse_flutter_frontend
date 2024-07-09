@@ -9,7 +9,7 @@ Color jobStatusColor(String jobStatus) {
     case "Completed":
       return Colors.green.shade100;
     default:
-      return AppColor().greyGoose;
+      return AppColor.greyGoose;
   }
 }
 
@@ -23,13 +23,13 @@ Widget bottomButton(
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           side: BorderSide(
-            color: AppColor().blueViolet,
+            color: AppColor.blueViolet,
           ),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(5),
           ),
           minimumSize: const Size(double.infinity, 50),
-          backgroundColor: AppColor().blueViolet,
+          backgroundColor: AppColor.blueViolet,
           disabledBackgroundColor: const Color.fromRGBO(31, 48, 94, .5),
           elevation: 5,
         ),

@@ -13,7 +13,7 @@ class _WelcomePageViewState extends State<WelcomePageView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColor().milkWhite,
+      backgroundColor: AppColor.milkWhite,
       body: Padding(
         padding: const EdgeInsets.fromLTRB(18, 0, 18, 10),
         child: Column(
@@ -39,13 +39,13 @@ class _WelcomePageViewState extends State<WelcomePageView> {
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         side: BorderSide(
-                          color: AppColor().blueViolet,
+                          color: AppColor.blueViolet,
                         ),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(5),
                         ),
                         minimumSize: const Size(120, 58),
-                        backgroundColor: AppColor().blueViolet,
+                        backgroundColor: AppColor.blueViolet,
                         disabledBackgroundColor:
                             const Color.fromRGBO(31, 48, 94, .5),
                         elevation: 5,
@@ -67,13 +67,13 @@ class _WelcomePageViewState extends State<WelcomePageView> {
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         side: BorderSide(
-                          color: AppColor().electricIndigo,
+                          color: AppColor.electricIndigo,
                         ),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(5),
                         ),
                         minimumSize: const Size(120, 58),
-                        backgroundColor: AppColor().milkWhite,
+                        backgroundColor: AppColor.milkWhite,
                         disabledBackgroundColor:
                             const Color.fromRGBO(31, 48, 94, .5),
                         elevation: 5,
@@ -85,7 +85,7 @@ class _WelcomePageViewState extends State<WelcomePageView> {
                       child: Text(
                         'Login',
                         style: TextStyle(
-                          color: AppColor().electricIndigo,
+                          color: AppColor.electricIndigo,
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                         ),

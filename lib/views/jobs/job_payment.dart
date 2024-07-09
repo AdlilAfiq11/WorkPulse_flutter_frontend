@@ -32,13 +32,13 @@ class _ConfirmPaymentViewState extends State<ConfirmPaymentView> {
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
             side: BorderSide(
-              color: AppColor().blueViolet,
+              color: AppColor.blueViolet,
             ),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(5),
             ),
             minimumSize: const Size(double.infinity, 50),
-            backgroundColor: AppColor().blueViolet,
+            backgroundColor: AppColor.blueViolet,
             disabledBackgroundColor: const Color.fromRGBO(31, 48, 94, .5),
             elevation: 5,
           ),
@@ -55,7 +55,7 @@ class _ConfirmPaymentViewState extends State<ConfirmPaymentView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColor().lightGrey,
+      backgroundColor: AppColor.lightGrey,
       appBar: AppBar(
         title: const Text(
           'Confirm Payment',
@@ -67,7 +67,7 @@ class _ConfirmPaymentViewState extends State<ConfirmPaymentView> {
         iconTheme: const IconThemeData(
           color: Colors.white,
         ),
-        backgroundColor: AppColor().blueViolet,
+        backgroundColor: AppColor.blueViolet,
         elevation: 5,
       ),
       body: Column(
@@ -159,7 +159,7 @@ class _ConfirmPaymentViewState extends State<ConfirmPaymentView> {
                               const SizedBox(width: 8),
                               Icon(
                                 Icons.edit,
-                                color: AppColor().ceruleanBlue,
+                                color: AppColor.ceruleanBlue,
                                 size: 18,
                               )
                             ],
@@ -167,7 +167,7 @@ class _ConfirmPaymentViewState extends State<ConfirmPaymentView> {
                         : Text(
                             'Apply',
                             style: TextStyle(
-                              color: AppColor().electricIndigo,
+                              color: AppColor.electricIndigo,
                               fontSize: 16,
                             ),
                           ),

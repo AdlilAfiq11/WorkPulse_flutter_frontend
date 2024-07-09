@@ -21,13 +21,13 @@ class _JobDetailsViewState extends State<JobDetailsView> {
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
             side: BorderSide(
-              color: AppColor().blueViolet,
+              color: AppColor.blueViolet,
             ),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(5),
             ),
             minimumSize: const Size(120, 50),
-            backgroundColor: AppColor().blueViolet,
+            backgroundColor: AppColor.blueViolet,
             disabledBackgroundColor: const Color.fromRGBO(31, 48, 94, .5),
             elevation: 5,
           ),
@@ -45,7 +45,7 @@ class _JobDetailsViewState extends State<JobDetailsView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColor().lightGrey,
+      backgroundColor: AppColor.lightGrey,
       appBar: AppBar(
         title: const Text(
           '20221128-757145',
@@ -57,7 +57,7 @@ class _JobDetailsViewState extends State<JobDetailsView> {
         iconTheme: const IconThemeData(
           color: Colors.white,
         ),
-        backgroundColor: AppColor().blueViolet,
+        backgroundColor: AppColor.blueViolet,
         scrolledUnderElevation: 5,
       ),
       body: SingleChildScrollView(
@@ -96,7 +96,7 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                               child: Center(
                                   child: Text(
                                 'On-going',
-                                style: TextStyle(color: AppColor().blueZodiac),
+                                style: TextStyle(color: AppColor.blueZodiac),
                               )),
                             ),
                           ),
@@ -127,7 +127,7 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                             child: Text(
                               'Reschedule',
                               style: TextStyle(
-                                color: AppColor().electricIndigo,
+                                color: AppColor.electricIndigo,
                                 fontSize: 16,
                               ),
                             ),
@@ -157,11 +157,11 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                           flex: 3,
                           child: CircleAvatar(
                             radius: 25,
-                            backgroundColor: AppColor().lightPurple,
+                            backgroundColor: AppColor.lightPurple,
                             child: Icon(
                               Icons.map_outlined,
                               size: 25,
-                              color: AppColor().electricIndigo,
+                              color: AppColor.electricIndigo,
                             ),
                           ),
                         ),
@@ -195,7 +195,7 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                           child: Text(
                             'View Details',
                             style: TextStyle(
-                              color: AppColor().electricIndigo,
+                              color: AppColor.electricIndigo,
                               fontSize: 16,
                             ),
                           ),
@@ -222,11 +222,11 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                           flex: 3,
                           child: CircleAvatar(
                             radius: 25,
-                            backgroundColor: AppColor().lightPurple,
+                            backgroundColor: AppColor.lightPurple,
                             child: Icon(
                               Icons.call,
                               size: 25,
-                              color: AppColor().electricIndigo,
+                              color: AppColor.electricIndigo,
                             ),
                           ),
                         ),
@@ -259,7 +259,7 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                           child: Text(
                             'Add Service',
                             style: TextStyle(
-                              color: AppColor().electricIndigo,
+                              color: AppColor.electricIndigo,
                               fontSize: 16,
                             ),
                           ),
@@ -413,7 +413,7 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                 Text(
                   'Have you taken a photo of before service condition?',
                   style: TextStyle(
-                    color: AppColor().matteBlack,
+                    color: AppColor.matteBlack,
                     fontWeight: FontWeight.bold,
                     fontSize: 20,
                   ),
@@ -432,13 +432,13 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     side: BorderSide(
-                      color: AppColor().blueViolet,
+                      color: AppColor.blueViolet,
                     ),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(5),
                     ),
                     minimumSize: const Size(double.infinity, 50),
-                    backgroundColor: AppColor().blueViolet,
+                    backgroundColor: AppColor.blueViolet,
                     disabledBackgroundColor:
                         const Color.fromRGBO(31, 48, 94, .5),
                     elevation: 5,

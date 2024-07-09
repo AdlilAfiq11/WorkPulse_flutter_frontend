@@ -12,7 +12,7 @@ class _LoanPageViewState extends State<LoanPageView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColor().offWhite,
+      backgroundColor: AppColor.offWhite,
       body: const Center(
         child: Text('Loan Page'),
       ),

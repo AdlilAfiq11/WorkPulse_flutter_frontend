@@ -16,7 +16,7 @@ class _ServiceReportViewState extends State<ServiceReportView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColor().lightGrey,
+      backgroundColor: AppColor.lightGrey,
       appBar: AppBar(
         title: const Text(
           'Create Service Report',
@@ -28,7 +28,7 @@ class _ServiceReportViewState extends State<ServiceReportView> {
         iconTheme: const IconThemeData(
           color: Colors.white,
         ),
-        backgroundColor: AppColor().blueViolet,
+        backgroundColor: AppColor.blueViolet,
         elevation: 5,
       ),
       body: Column(
@@ -77,7 +77,7 @@ class _ServiceReportViewState extends State<ServiceReportView> {
                         child: Text(
                           'Edit',
                           style: TextStyle(
-                            color: AppColor().electricIndigo,
+                            color: AppColor.electricIndigo,
                             fontSize: 16,
                           ),
                         ),

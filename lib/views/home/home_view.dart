@@ -29,7 +29,7 @@ class _HomePageViewState extends State<HomePageView> {
                     ),
                     border: Border(
                       right: BorderSide(
-                        color: AppColor().lightGrey,
+                        color: AppColor.lightGrey,
                         width: 3.0,
                       ),
                     ),
@@ -51,7 +51,7 @@ class _HomePageViewState extends State<HomePageView> {
                           'RM 0.00',
                           style: TextStyle(
                             fontSize: 16,
-                            color: AppColor().matteBlack,
+                            color: AppColor.matteBlack,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -88,7 +88,7 @@ class _HomePageViewState extends State<HomePageView> {
                           '0',
                           style: TextStyle(
                             fontSize: 16,
-                            color: AppColor().matteBlack,
+                            color: AppColor.matteBlack,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -107,7 +107,7 @@ class _HomePageViewState extends State<HomePageView> {
           child: ListTile(
             dense: true,
             onTap: () {},
-            tileColor: AppColor().blueViolet,
+            tileColor: AppColor.blueViolet,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(13),
             ),
@@ -145,13 +145,13 @@ class _HomePageViewState extends State<HomePageView> {
         );
 
     return Scaffold(
-      backgroundColor: AppColor().lightGrey,
+      backgroundColor: AppColor.lightGrey,
       appBar: AppBar(
         title: const Text(
           'Performance',
           style: TextStyle(fontWeight: FontWeight.w500),
         ),
-        backgroundColor: AppColor().lightGrey,
+        backgroundColor: AppColor.lightGrey,
         automaticallyImplyLeading: false,
       ),
       body: Column(

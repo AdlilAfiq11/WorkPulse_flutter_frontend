@@ -45,15 +45,15 @@ class _JobsPageViewState extends State<JobsPageView>
                 (BuildContext context, bool innerBoxIsScrolled) {
               return <Widget>[
                 SliverAppBar(
-                  backgroundColor: AppColor().milkWhite,
+                  backgroundColor: AppColor.milkWhite,
                   title: appBarTitle,
                   pinned: true,
                   floating: true,
                   automaticallyImplyLeading: false,
                   forceElevated: innerBoxIsScrolled,
                   bottom: TabBar(
-                    labelColor: AppColor().electricIndigo,
-                    indicatorColor: AppColor().electricIndigo,
+                    labelColor: AppColor.electricIndigo,
+                    indicatorColor: AppColor.electricIndigo,
                     indicatorSize: TabBarIndicatorSize.tab,
                     controller: _tabController,
                     tabs: const <Widget>[
@@ -79,13 +79,13 @@ class _JobsPageViewState extends State<JobsPageView>
                 physics: const NeverScrollableScrollPhysics(),
                 children: <Widget>[
                   Container(
-                    color: AppColor().lightGrey,
+                    color: AppColor.lightGrey,
                     child: const Center(
                       child: Text('All Jobs'),
                     ),
                   ),
                   Container(
-                    color: AppColor().lightGrey,
+                    color: AppColor.lightGrey,
                     child: Center(
                       child: ListView.builder(
                         itemCount: 3,
@@ -97,7 +97,7 @@ class _JobsPageViewState extends State<JobsPageView>
                     ),
                   ),
                   Container(
-                    color: AppColor().lightGrey,
+                    color: AppColor.lightGrey,
                     child: const Center(
                       child: Text('Past Jobs'),
                     ),
@@ -109,7 +109,7 @@ class _JobsPageViewState extends State<JobsPageView>
     }
 
     return Scaffold(
-      backgroundColor: AppColor().lightGrey,
+      backgroundColor: AppColor.lightGrey,
       body: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
