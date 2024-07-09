@@ -197,6 +197,7 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                             style: TextStyle(
                               color: AppColor.electricIndigo,
                               fontSize: 16,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
                         ),
