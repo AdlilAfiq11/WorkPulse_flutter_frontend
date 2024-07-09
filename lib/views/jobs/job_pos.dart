@@ -1,7 +1,10 @@
 import 'package:dotted_border/dotted_border.dart';
+import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_signaturepad/signaturepad.dart';
 import 'package:workpulse_flutter_frontend/models/color_model.dart';
+import 'package:workpulse_flutter_frontend/utils/main_utils.dart';
+import 'package:workpulse_flutter_frontend/views/jobs/job_report.dart';
 
 //TODO: Add photo
 //TODO: Signature area
@@ -20,32 +23,6 @@ class _ProofofServiceViewState extends State<ProofofServiceView> {
 
   @override
   Widget build(BuildContext context) {
-    Widget submitButton() => Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              side: BorderSide(
-                color: AppColor().blueViolet,
-              ),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(5),
-              ),
-              minimumSize: const Size(double.infinity, 58),
-              backgroundColor: AppColor().blueViolet,
-              disabledBackgroundColor: const Color.fromRGBO(31, 48, 94, .5),
-              elevation: 5,
-            ),
-            onPressed: () {},
-            child: const Text(
-              'Submit',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 17,
-              ),
-            ),
-          ),
-        );
-
     return Scaffold(
       backgroundColor: AppColor().lightGrey,
       appBar: AppBar(
@@ -68,7 +45,7 @@ class _ProofofServiceViewState extends State<ProofofServiceView> {
             color: Colors.white,
             width: double.infinity,
             child: Padding(
-              padding: const EdgeInsets.all(14),
+              padding: const EdgeInsets.all(13),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -88,16 +65,16 @@ class _ProofofServiceViewState extends State<ProofofServiceView> {
                   ),
                   const SizedBox(height: 15),
                   DottedBorder(
-                    color: AppColor().electricIndigo,
+                    color: Colors.grey.shade500,
                     dashPattern: const [5],
                     borderType: BorderType.RRect,
                     radius: const Radius.circular(8),
-                    padding: const EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(8),
                     child: IconButton(
                       onPressed: () {},
                       icon: Icon(
                         Icons.add,
-                        color: AppColor().electricIndigo,
+                        color: AppColor().ceruleanBlue,
                         size: 30,
                       ),
                     ),
@@ -111,7 +88,7 @@ class _ProofofServiceViewState extends State<ProofofServiceView> {
             color: Colors.white,
             width: double.infinity,
             child: Padding(
-              padding: const EdgeInsets.all(14),
+              padding: const EdgeInsets.all(13),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -130,12 +107,29 @@ class _ProofofServiceViewState extends State<ProofofServiceView> {
                     ),
                   ),
                   const SizedBox(height: 15),
-                  ElevatedButton(
-                    onPressed: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => jobSignature())),
-                    child: const Text('Sign'),
+                  Align(
+                    alignment: Alignment.center,
+                    child: DottedBorder(
+                      color: Colors.grey.shade500,
+                      dashPattern: const [5],
+                      borderType: BorderType.RRect,
+                      radius: const Radius.circular(8),
+                      padding: const EdgeInsets.all(8),
+                      child: TextButton.icon(
+                        onPressed: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => jobSignature())),
+                        icon: Icon(
+                          FluentIcons.signature_24_filled,
+                          color: AppColor().ceruleanBlue,
+                        ),
+                        label: Text(
+                          'Tap to sign the job ',
+                          style: TextStyle(color: AppColor().ceruleanBlue),
+                        ),
+                      ),
+                    ),
                   ),
                 ],
               ),
@@ -143,7 +137,12 @@ class _ProofofServiceViewState extends State<ProofofServiceView> {
           ),
         ],
       ),
-      bottomNavigationBar: submitButton(),
+      bottomNavigationBar: bottomButton(
+        context,
+        title: 'Submit',
+        onPressed: () => Navigator.push(
+            context, SlideRoute(page: const ServiceReportView())),
+      ),
     );
   }
 
@@ -164,6 +163,17 @@ class _ProofofServiceViewState extends State<ProofofServiceView> {
         ),
         backgroundColor: AppColor().blueViolet,
         elevation: 5,
+        actions: [
+          IconButton(
+            onPressed: () {
+              _signature = null;
+              signaturePadKey.currentState!.clear();
+            },
+            icon: const Icon(
+              Icons.refresh_outlined,
+            ),
+          )
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -215,31 +225,6 @@ class _ProofofServiceViewState extends State<ProofofServiceView> {
           children: [
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                minimumSize: const Size(double.infinity, 45),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(5),
-                  side: BorderSide(
-                    color: Colors.blue.shade600,
-                    width: 0.8,
-                  ),
-                ),
-                backgroundColor: Colors.white,
-              ),
-              onPressed: () {
-                _signature = null;
-                signaturePadKey.currentState!.clear();
-              },
-              child: Text(
-                "Clear",
-                style: TextStyle(
-                  color: Colors.blue.shade600,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w400,
-                ),
-              ),
-            ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
                 side: BorderSide(
                   color: AppColor().blueViolet,
                 ),
@@ -251,7 +236,9 @@ class _ProofofServiceViewState extends State<ProofofServiceView> {
                 disabledBackgroundColor: const Color.fromRGBO(31, 48, 94, .5),
                 elevation: 5,
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pop(context);
+              },
               child: const Text(
                 'Submit',
                 style: TextStyle(
