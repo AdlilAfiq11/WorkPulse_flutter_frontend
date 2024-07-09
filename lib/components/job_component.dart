@@ -124,7 +124,7 @@ Widget createJobCard(BuildContext context) {
                           borderRadius: BorderRadius.circular(8),
                         ),
                         minimumSize: const Size(120, 45),
-                        backgroundColor: AppColor().milkWhite,
+                        backgroundColor: AppColor.milkWhite,
                         disabledBackgroundColor:
                             const Color.fromRGBO(31, 48, 94, .5),
                         elevation: 5,
@@ -132,12 +132,12 @@ Widget createJobCard(BuildContext context) {
                       onPressed: () {},
                       icon: Icon(
                         Icons.map_sharp,
-                        color: AppColor().electricIndigo,
+                        color: AppColor.electricIndigo,
                       ),
                       label: Text(
                         'Get There',
                         style: TextStyle(
-                          color: AppColor().electricIndigo,
+                          color: AppColor.electricIndigo,
                           fontSize: 13,
                           fontWeight: FontWeight.bold,
                         ),
@@ -153,7 +153,7 @@ Widget createJobCard(BuildContext context) {
                           borderRadius: BorderRadius.circular(8),
                         ),
                         minimumSize: const Size(120, 45),
-                        backgroundColor: AppColor().milkWhite,
+                        backgroundColor: AppColor.milkWhite,
                         disabledBackgroundColor:
                             const Color.fromRGBO(31, 48, 94, .5),
                         elevation: 5,
@@ -161,12 +161,12 @@ Widget createJobCard(BuildContext context) {
                       onPressed: () {},
                       icon: Icon(
                         Icons.call,
-                        color: AppColor().electricIndigo,
+                        color: AppColor.electricIndigo,
                       ),
                       label: Text(
                         'Call Customer',
                         style: TextStyle(
-                          color: AppColor().electricIndigo,
+                          color: AppColor.electricIndigo,
                           fontSize: 13,
                           fontWeight: FontWeight.bold,
                         ),

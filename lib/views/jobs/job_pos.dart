@@ -25,13 +25,13 @@ class _ProofofServiceViewState extends State<ProofofServiceView> {
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
               side: BorderSide(
-                color: AppColor().blueViolet,
+                color: AppColor.blueViolet,
               ),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(5),
               ),
               minimumSize: const Size(double.infinity, 58),
-              backgroundColor: AppColor().blueViolet,
+              backgroundColor: AppColor.blueViolet,
               disabledBackgroundColor: const Color.fromRGBO(31, 48, 94, .5),
               elevation: 5,
             ),
@@ -47,7 +47,7 @@ class _ProofofServiceViewState extends State<ProofofServiceView> {
         );
 
     return Scaffold(
-      backgroundColor: AppColor().lightGrey,
+      backgroundColor: AppColor.lightGrey,
       appBar: AppBar(
         title: const Text(
           'Proof of Service',
@@ -59,7 +59,7 @@ class _ProofofServiceViewState extends State<ProofofServiceView> {
         iconTheme: const IconThemeData(
           color: Colors.white,
         ),
-        backgroundColor: AppColor().blueViolet,
+        backgroundColor: AppColor.blueViolet,
         elevation: 5,
       ),
       body: Column(
@@ -88,7 +88,7 @@ class _ProofofServiceViewState extends State<ProofofServiceView> {
                   ),
                   const SizedBox(height: 15),
                   DottedBorder(
-                    color: AppColor().electricIndigo,
+                    color: AppColor.electricIndigo,
                     dashPattern: const [5],
                     borderType: BorderType.RRect,
                     radius: const Radius.circular(8),
@@ -97,7 +97,7 @@ class _ProofofServiceViewState extends State<ProofofServiceView> {
                       onPressed: () {},
                       icon: Icon(
                         Icons.add,
-                        color: AppColor().electricIndigo,
+                        color: AppColor.electricIndigo,
                         size: 30,
                       ),
                     ),
@@ -150,7 +150,7 @@ class _ProofofServiceViewState extends State<ProofofServiceView> {
   //TODO: Signature pad for the customer
   Widget jobSignature() {
     return Scaffold(
-      backgroundColor: AppColor().lightGrey,
+      backgroundColor: AppColor.lightGrey,
       appBar: AppBar(
         title: const Text(
           'Signature of Customer',
@@ -162,7 +162,7 @@ class _ProofofServiceViewState extends State<ProofofServiceView> {
         iconTheme: const IconThemeData(
           color: Colors.white,
         ),
-        backgroundColor: AppColor().blueViolet,
+        backgroundColor: AppColor.blueViolet,
         elevation: 5,
       ),
       body: SingleChildScrollView(
@@ -241,13 +241,13 @@ class _ProofofServiceViewState extends State<ProofofServiceView> {
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 side: BorderSide(
-                  color: AppColor().blueViolet,
+                  color: AppColor.blueViolet,
                 ),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(5),
                 ),
                 minimumSize: const Size(double.infinity, 50),
-                backgroundColor: AppColor().blueViolet,
+                backgroundColor: AppColor.blueViolet,
                 disabledBackgroundColor: const Color.fromRGBO(31, 48, 94, .5),
                 elevation: 5,
               ),

@@ -8,7 +8,7 @@ Color jobStatusColor(String jobStatus) {
     case "Completed":
       return Colors.green.shade100;
     default:
-      return AppColor().greyGoose;
+      return AppColor.greyGoose;
   }
 }
 

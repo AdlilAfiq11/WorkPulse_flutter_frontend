@@ -19,7 +19,7 @@ class _RootAppState extends State<RootApp> {
     return MaterialApp(
       title: 'Workpulse',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: AppColor().matteBlack),
+        colorScheme: ColorScheme.fromSeed(seedColor: AppColor.matteBlack),
         useMaterial3: true,
       ),
       home: const WelcomePageView(),

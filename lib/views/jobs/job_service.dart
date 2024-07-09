@@ -17,13 +17,13 @@ class _JobServiceViewState extends State<JobServiceView> {
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
               side: BorderSide(
-                color: AppColor().blueViolet,
+                color: AppColor.blueViolet,
               ),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(5),
               ),
               minimumSize: const Size(120, 58),
-              backgroundColor: AppColor().blueViolet,
+              backgroundColor: AppColor.blueViolet,
               disabledBackgroundColor: const Color.fromRGBO(31, 48, 94, .5),
               elevation: 5,
             ),
@@ -39,7 +39,7 @@ class _JobServiceViewState extends State<JobServiceView> {
         );
 
     return Scaffold(
-      backgroundColor: AppColor().lightGrey,
+      backgroundColor: AppColor.lightGrey,
       appBar: AppBar(
         title: const Text(
           'Add New Service',
@@ -51,7 +51,7 @@ class _JobServiceViewState extends State<JobServiceView> {
         iconTheme: const IconThemeData(
           color: Colors.white,
         ),
-        backgroundColor: AppColor().blueViolet,
+        backgroundColor: AppColor.blueViolet,
         elevation: 5,
       ),
       bottomNavigationBar: addService(),
@@ -62,7 +62,7 @@ class _JobServiceViewState extends State<JobServiceView> {
 //TODO: List of job service
 Widget addJobService() {
   return Scaffold(
-    backgroundColor: AppColor().lightGrey,
+    backgroundColor: AppColor.lightGrey,
     appBar: AppBar(
       title: const Text(
         'Add New Service',
@@ -74,7 +74,7 @@ Widget addJobService() {
       iconTheme: const IconThemeData(
         color: Colors.white,
       ),
-      backgroundColor: AppColor().blueViolet,
+      backgroundColor: AppColor.blueViolet,
       elevation: 5,
     ),
   );
