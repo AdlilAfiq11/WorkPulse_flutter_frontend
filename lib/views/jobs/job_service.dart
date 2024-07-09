@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:workpulse_flutter_frontend/models/color_model.dart';
 
+//TODO: Service
+
 class JobServiceView extends StatefulWidget {
   const JobServiceView({super.key});
 
@@ -22,7 +24,7 @@ class _JobServiceViewState extends State<JobServiceView> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(5),
               ),
-              minimumSize: const Size(120, 58),
+              minimumSize: const Size(120, 50),
               backgroundColor: AppColor.blueViolet,
               disabledBackgroundColor: const Color.fromRGBO(31, 48, 94, .5),
               elevation: 5,
@@ -60,7 +62,7 @@ class _JobServiceViewState extends State<JobServiceView> {
 }
 
 //TODO: List of job service
-Widget addJobService() {
+Widget addNewJobService() {
   return Scaffold(
     backgroundColor: AppColor.lightGrey,
     appBar: AppBar(

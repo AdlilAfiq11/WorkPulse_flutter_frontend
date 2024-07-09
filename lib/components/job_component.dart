@@ -182,3 +182,8 @@ Widget createJobCard(BuildContext context) {
     ),
   );
 }
+
+//custom for service component
+Widget serviceCard() {
+  return Container();
+}
