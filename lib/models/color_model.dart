@@ -8,6 +8,7 @@ class AppColor {
   static Color lightPurple = const Color.fromRGBO(244, 241, 253, 1);
   static Color blueViolet = const Color.fromRGBO(68, 29, 226, 1);
   static Color mediumBlue = const Color.fromRGBO(55, 23, 181, 1);
+  static Color pictonBlue = const Color.fromRGBO(0, 176, 255, 1);
   static Color yaleBlue = const Color.fromRGBO(0, 66, 140, 1);
   static Color airForceBlue = const Color.fromRGBO(93, 138, 168, 1);
   static Color deepSaffron = const Color.fromRGBO(255, 164, 57, 1);

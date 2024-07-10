@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:workpulse_flutter_frontend/models/color_model.dart';
 import 'package:workpulse_flutter_frontend/views/index/login_view.dart';
+import 'package:workpulse_flutter_frontend/views/index/register_view.dart';
 
 class WelcomePageView extends StatelessWidget {
   const WelcomePageView({super.key});
@@ -40,7 +41,11 @@ class WelcomePageView extends StatelessWidget {
                       borderRadius: BorderRadius.circular(5),
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () => Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const RegisterView(),
+                    ),
+                  ),
                   child: const Text('Sign Up', style: TextStyle(fontSize: 18)),
                 ),
               ),
