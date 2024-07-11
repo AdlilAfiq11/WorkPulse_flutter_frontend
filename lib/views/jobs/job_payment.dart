@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:workpulse_flutter_frontend/components/payment_component.dart';
 import 'package:workpulse_flutter_frontend/models/color_model.dart';
 import 'package:workpulse_flutter_frontend/utils/main_utils.dart';
 
 //TODO: Apply discount
-enum PaymentMethod { empty, cash, online }
+//TODO: Complete payment page
+
+enum PaymentMethod { notSelected, cash, online }
 
 class ConfirmPaymentView extends StatefulWidget {
   const ConfirmPaymentView({super.key});
@@ -13,7 +16,7 @@ class ConfirmPaymentView extends StatefulWidget {
 }
 
 class _ConfirmPaymentViewState extends State<ConfirmPaymentView> {
-  PaymentMethod? _method = PaymentMethod.empty;
+  PaymentMethod? _method = PaymentMethod.notSelected;
 
   //Testing pupose
   double totalAmountTest = 90.00;
@@ -52,6 +55,7 @@ class _ConfirmPaymentViewState extends State<ConfirmPaymentView> {
           ),
         ),
       );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -212,7 +216,7 @@ class _ConfirmPaymentViewState extends State<ConfirmPaymentView> {
                       Text(
                         'RM $totalAmountTest',
                         style: const TextStyle(
-                          fontSize: 16,
+                          fontSize: 18,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -225,8 +229,11 @@ class _ConfirmPaymentViewState extends State<ConfirmPaymentView> {
           bottomButton(
             context,
             title: 'Continue',
-            onPressed: _method != PaymentMethod.empty
-                ? () {}
+            onPressed: _method != PaymentMethod.notSelected
+                ? () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const CompletePayment()))
                 : () {
                     customShowToast(
                       context,
