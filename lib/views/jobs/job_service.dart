@@ -60,24 +60,3 @@ class _JobServiceViewState extends State<JobServiceView> {
     );
   }
 }
-
-//TODO: List of job service
-Widget addNewJobService() {
-  return Scaffold(
-    backgroundColor: AppColor.lightGrey,
-    appBar: AppBar(
-      title: const Text(
-        'Add New Service',
-        style: TextStyle(
-          color: Colors.white,
-          fontSize: 20,
-        ),
-      ),
-      iconTheme: const IconThemeData(
-        color: Colors.white,
-      ),
-      backgroundColor: AppColor.blueViolet,
-      elevation: 5,
-    ),
-  );
-}
