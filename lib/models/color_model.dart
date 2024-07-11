@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
 class AppColor {
+  static Color eerieBlack = const Color.fromRGBO(38, 38, 38, 1);
   static Color matteBlack = const Color.fromRGBO(40, 40, 43, 1);
   static Color ceruleanBlue = const Color.fromRGBO(42, 82, 190, 1);
   static Color blueZodiac = const Color.fromRGBO(31, 48, 94, 1);
   static Color electricIndigo = const Color.fromRGBO(111, 0, 255, 1);
+  static Color tropicalIndigo = const Color.fromRGBO(143, 119, 238, 1);
   static Color lightPurple = const Color.fromRGBO(244, 241, 253, 1);
   static Color blueViolet = const Color.fromRGBO(68, 29, 226, 1);
   static Color mediumBlue = const Color.fromRGBO(55, 23, 181, 1);
