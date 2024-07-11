@@ -26,7 +26,7 @@ class _JobDetailsViewState extends State<JobDetailsView> {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(5),
             ),
-            minimumSize: const Size(120, 58),
+            minimumSize: const Size(120, 50),
             backgroundColor: AppColor.blueViolet,
             disabledBackgroundColor: const Color.fromRGBO(31, 48, 94, .5),
             elevation: 5,
@@ -67,12 +67,12 @@ class _JobDetailsViewState extends State<JobDetailsView> {
               color: Colors.white,
               width: double.infinity,
               child: Padding(
-                padding: const EdgeInsets.all(10),
+                padding: const EdgeInsets.all(13),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(left: 5, right: 5),
+                      padding: const EdgeInsets.only(right: 5),
                       child: Row(
                         children: [
                           const Expanded(
@@ -176,31 +176,28 @@ class _JobDetailsViewState extends State<JobDetailsView> {
               color: Colors.white,
               width: double.infinity,
               child: Padding(
-                padding: const EdgeInsets.all(10),
+                padding: const EdgeInsets.fromLTRB(13, 0, 13, 13),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const Expanded(
-                          child: Text(
-                            'Customer Details',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            ),
+                        const Text(
+                          'Customer Details',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
-                        Align(
-                          alignment: Alignment.centerRight,
-                          child: TextButton(
-                            onPressed: () {},
-                            child: Text(
-                              'View Details',
-                              style: TextStyle(
-                                color: AppColor.electricIndigo,
-                                fontSize: 16,
-                              ),
+                        TextButton(
+                          onPressed: () {},
+                          child: Text(
+                            'View Details',
+                            style: TextStyle(
+                              color: AppColor.electricIndigo,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
                         ),
@@ -245,37 +242,30 @@ class _JobDetailsViewState extends State<JobDetailsView> {
               color: Colors.white,
               width: double.infinity,
               child: Padding(
-                padding: const EdgeInsets.all(10),
+                padding: const EdgeInsets.fromLTRB(13, 0, 13, 13),
                 child: Column(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 5),
-                      child: Row(
-                        children: [
-                          const Expanded(
-                            child: Text(
-                              'Service',
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                              ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text(
+                          'Service',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: () {},
+                          child: Text(
+                            'Add Service',
+                            style: TextStyle(
+                              color: AppColor.electricIndigo,
+                              fontSize: 16,
                             ),
                           ),
-                          Align(
-                            alignment: Alignment.centerRight,
-                            child: TextButton(
-                              onPressed: () {},
-                              child: Text(
-                                'Add Service',
-                                style: TextStyle(
-                                  color: AppColor.electricIndigo,
-                                  fontSize: 16,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
@@ -286,7 +276,7 @@ class _JobDetailsViewState extends State<JobDetailsView> {
               color: Colors.white,
               width: double.infinity,
               child: Padding(
-                padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
+                padding: const EdgeInsets.all(13),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -329,7 +319,7 @@ class _JobDetailsViewState extends State<JobDetailsView> {
               color: Colors.white,
               width: double.infinity,
               child: Padding(
-                padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
+                padding: const EdgeInsets.all(13),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -344,41 +334,37 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                       ),
                     ),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Expanded(
-                          child: Text(
-                            'Payment Method',
-                            style: TextStyle(
-                                fontSize: 15, color: Colors.grey.shade700),
+                        Text(
+                          'Payment Method',
+                          style: TextStyle(
+                            fontSize: 15,
+                            color: Colors.grey.shade700,
                           ),
                         ),
-                        const Align(
-                          alignment: Alignment.centerRight,
-                          child: Text(
-                            'Company Billed',
-                            style: TextStyle(
-                              fontSize: 15,
-                            ),
+                        const Text(
+                          'Company Billed',
+                          style: TextStyle(
+                            fontSize: 15,
                           ),
                         ),
                       ],
                     ),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Expanded(
-                          child: Text(
-                            'Total',
-                            style: TextStyle(
-                                fontSize: 15, color: Colors.grey.shade700),
+                        Text(
+                          'Total',
+                          style: TextStyle(
+                            fontSize: 15,
+                            color: Colors.grey.shade700,
                           ),
                         ),
-                        const Align(
-                          alignment: Alignment.centerRight,
-                          child: Text(
-                            'RM 570',
-                            style: TextStyle(
-                              fontSize: 15,
-                            ),
+                        const Text(
+                          'RM 570',
+                          style: TextStyle(
+                            fontSize: 15,
                           ),
                         ),
                       ],
@@ -452,7 +438,7 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(5),
                     ),
-                    minimumSize: const Size(double.infinity, 58),
+                    minimumSize: const Size(double.infinity, 50),
                     backgroundColor: AppColor.blueViolet,
                     disabledBackgroundColor:
                         const Color.fromRGBO(31, 48, 94, .5),
