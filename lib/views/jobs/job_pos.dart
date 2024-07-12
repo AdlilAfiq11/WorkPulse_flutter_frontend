@@ -133,11 +133,14 @@ class _ProofofServiceViewState extends State<ProofofServiceView> {
           ),
         ],
       ),
-      bottomNavigationBar: bottomButton(
-        context,
-        title: 'Submit',
-        onPressed: () => Navigator.push(
-            context, SlideRoute(page: const ServiceReportView())),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: bottomButton(
+          context,
+          title: 'Submit',
+          onPressed: () => Navigator.push(
+              context, SlideRoute(page: const ServiceReportView())),
+        ),
       ),
     );
   }

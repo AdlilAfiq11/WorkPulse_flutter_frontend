@@ -1,11 +1,11 @@
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:workpulse_flutter_frontend/components/reschedule_component.dart';
 import 'package:workpulse_flutter_frontend/models/color_model.dart';
 import 'package:workpulse_flutter_frontend/utils/main_utils.dart';
 import 'package:workpulse_flutter_frontend/views/jobs/job_pos.dart';
 
-//TODO: Create component for service
-//TODO: Confirm back with jin for "Reschedule", "Job Status" & Add Service
+//TODO: Create custm card for service
 
 class JobDetailsView extends StatefulWidget {
   const JobDetailsView({super.key});
@@ -31,7 +31,7 @@ class _JobDetailsViewState extends State<JobDetailsView> {
             disabledBackgroundColor: const Color.fromRGBO(31, 48, 94, .5),
             elevation: 5,
           ),
-          onPressed: () => photoAlert(),
+          onPressed: photoAlert,
           child: const Text(
             'Start Job',
             style: TextStyle(
@@ -90,13 +90,13 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                             child: Container(
                               height: 30,
                               decoration: BoxDecoration(
-                                color: Colors.blue.shade200,
+                                color: Colors.blue.shade100,
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               child: Center(
                                   child: Text(
                                 'On-going',
-                                style: TextStyle(color: AppColor.blueZodiac),
+                                style: TextStyle(color: Colors.blue.shade700),
                               )),
                             ),
                           ),
@@ -123,12 +123,13 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                         Expanded(
                           flex: 4,
                           child: TextButton(
-                            onPressed: () {},
+                            onPressed: manageOrder,
                             child: Text(
                               'Reschedule',
                               style: TextStyle(
                                 color: AppColor.electricIndigo,
                                 fontSize: 16,
+                                fontWeight: FontWeight.w500,
                               ),
                             ),
                           ),
@@ -197,7 +198,7 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                             style: TextStyle(
                               color: AppColor.electricIndigo,
                               fontSize: 16,
-                              fontWeight: FontWeight.bold,
+                              fontWeight: FontWeight.w500,
                             ),
                           ),
                         ),
@@ -262,6 +263,7 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                             style: TextStyle(
                               color: AppColor.electricIndigo,
                               fontSize: 16,
+                              fontWeight: FontWeight.w500,
                             ),
                           ),
                         ),
@@ -459,6 +461,55 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                 ),
               ],
             ),
+          ),
+        );
+      },
+    );
+  }
+
+  //TODO:Change color to white
+  manageOrder() {
+    return showModalBottomSheet(
+      showDragHandle: true,
+      elevation: 5.0,
+      context: context,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(30.0)),
+      ),
+      builder: (context) {
+        return SizedBox(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                'Manage Order',
+                style: TextStyle(color: Colors.grey.shade700),
+              ),
+              const SizedBox(height: 18),
+              ListTile(
+                visualDensity: VisualDensity.compact,
+                onTap: () => Navigator.push(
+                    context, SlideRoute(page: const RescheduleOrder())),
+                title: const Text('Reschedule Order'),
+              ),
+              Divider(
+                color: Colors.grey.shade300,
+                indent: 20,
+                endIndent: 20,
+              ),
+              ListTile(
+                visualDensity: VisualDensity.compact,
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.push(context, SlideRoute(page: CancelOrder()));
+                },
+                title: Text(
+                  'Cancel Order',
+                  style: TextStyle(color: Colors.red.shade400),
+                ),
+              ),
+              const SizedBox(height: 10),
+            ],
           ),
         );
       },

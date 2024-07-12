@@ -25,36 +25,11 @@ class _ConfirmPaymentViewState extends State<ConfirmPaymentView> {
 
   bool isDiscount = false;
 
+  //Testing pupose
   void discount() {
     discountPriceTest = totalAmountTest - discountTest;
     setState(() {});
   }
-
-  Widget continueButton() => Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            side: BorderSide(
-              color: AppColor.blueViolet,
-            ),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(5),
-            ),
-            minimumSize: const Size(double.infinity, 50),
-            backgroundColor: AppColor.blueViolet,
-            disabledBackgroundColor: const Color.fromRGBO(31, 48, 94, .5),
-            elevation: 5,
-          ),
-          onPressed: () {},
-          child: const Text(
-            'Continue',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 17,
-            ),
-          ),
-        ),
-      );
 
   @override
   Widget build(BuildContext context) {
@@ -226,21 +201,28 @@ class _ConfirmPaymentViewState extends State<ConfirmPaymentView> {
               ),
             ),
           ),
-          bottomButton(
-            context,
-            title: 'Continue',
-            onPressed: _method != PaymentMethod.notSelected
-                ? () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const CompletePayment()))
-                : () {
-                    customShowToast(
-                      context,
-                      text: "Please select payment method before continue.",
-                      color: Colors.red.shade300,
-                    );
-                  },
+          Container(
+            color: Colors.white,
+            width: double.infinity,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: bottomButton(
+                context,
+                title: 'Continue',
+                onPressed: _method != PaymentMethod.notSelected
+                    ? () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const CompletePayment()))
+                    : () {
+                        customShowToast(
+                          context,
+                          text: "Please select payment method before continue.",
+                          color: Colors.red.shade300,
+                        );
+                      },
+              ),
+            ),
           ),
         ],
       ),

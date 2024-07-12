@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_signaturepad/signaturepad.dart';
 import 'package:workpulse_flutter_frontend/models/color_model.dart';
+import 'package:workpulse_flutter_frontend/utils/main_utils.dart';
 
 class SignaturePad extends StatefulWidget {
   const SignaturePad({super.key});
@@ -81,41 +82,16 @@ class _SignaturePadState extends State<SignaturePad> {
           ],
         ),
       ),
-      bottomNavigationBar: actionButton(),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: bottomButton(
+          context,
+          title: 'Submit',
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+      ),
     );
   }
-
-  // Action button to submit/clear/cancel signature
-  Widget actionButton() => Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                side: BorderSide(
-                  color: AppColor.blueViolet,
-                ),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(5),
-                ),
-                minimumSize: const Size(double.infinity, 50),
-                backgroundColor: AppColor.blueViolet,
-                disabledBackgroundColor: const Color.fromRGBO(31, 48, 94, .5),
-                elevation: 5,
-              ),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: const Text(
-                'Submit',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 17,
-                ),
-              ),
-            ),
-          ],
-        ),
-      );
 }

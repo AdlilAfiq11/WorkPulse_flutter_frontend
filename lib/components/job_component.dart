@@ -118,13 +118,14 @@ Widget createJobCard(BuildContext context) {
                 children: [
                   Expanded(
                     flex: 1,
-                    child: ElevatedButton.icon(
-                      style: ElevatedButton.styleFrom(
+                    child: TextButton.icon(
+                      style: TextButton.styleFrom(
+                        foregroundColor: Colors.white,
+                        backgroundColor: AppColor.lightPurple,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
                         ),
                         minimumSize: const Size(120, 45),
-                        backgroundColor: AppColor.milkWhite,
                         disabledBackgroundColor:
                             const Color.fromRGBO(31, 48, 94, .5),
                         elevation: 5,
@@ -138,7 +139,7 @@ Widget createJobCard(BuildContext context) {
                         'Get There',
                         style: TextStyle(
                           color: AppColor.electricIndigo,
-                          fontSize: 13,
+                          fontSize: 14,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -147,13 +148,14 @@ Widget createJobCard(BuildContext context) {
                   const SizedBox(width: 15),
                   Expanded(
                     flex: 1,
-                    child: ElevatedButton.icon(
-                      style: ElevatedButton.styleFrom(
+                    child: TextButton.icon(
+                      style: TextButton.styleFrom(
+                        foregroundColor: Colors.white,
+                        backgroundColor: AppColor.lightPurple,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
                         ),
                         minimumSize: const Size(120, 45),
-                        backgroundColor: AppColor.milkWhite,
                         disabledBackgroundColor:
                             const Color.fromRGBO(31, 48, 94, .5),
                         elevation: 5,
@@ -167,7 +169,7 @@ Widget createJobCard(BuildContext context) {
                         'Call Customer',
                         style: TextStyle(
                           color: AppColor.electricIndigo,
-                          fontSize: 13,
+                          fontSize: 14,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
