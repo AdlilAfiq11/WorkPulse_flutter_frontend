@@ -18,28 +18,25 @@ Widget bottomButton(
   required String title,
   required Function()? onPressed,
 }) =>
-    Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          side: BorderSide(
-            color: AppColor.blueViolet,
-          ),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(5),
-          ),
-          minimumSize: const Size(double.infinity, 50),
-          backgroundColor: AppColor.blueViolet,
-          disabledBackgroundColor: const Color.fromRGBO(31, 48, 94, .5),
-          elevation: 5,
+    ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        side: BorderSide(
+          color: AppColor.blueViolet,
         ),
-        onPressed: onPressed,
-        child: Text(
-          title,
-          style: const TextStyle(
-            color: Colors.white,
-            fontSize: 17,
-          ),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(5),
+        ),
+        minimumSize: const Size(double.infinity, 50),
+        backgroundColor: AppColor.blueViolet,
+        disabledBackgroundColor: const Color.fromRGBO(31, 48, 94, .5),
+        elevation: 5,
+      ),
+      onPressed: onPressed,
+      child: Text(
+        title,
+        style: const TextStyle(
+          color: Colors.white,
+          fontSize: 17,
         ),
       ),
     );

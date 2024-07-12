@@ -133,11 +133,14 @@ class _ServiceReportViewState extends State<ServiceReportView> {
           ),
         ],
       ),
-      bottomNavigationBar: bottomButton(
-        context,
-        title: 'Continue',
-        onPressed: () => Navigator.push(
-            context, SlideRoute(page: const ConfirmPaymentView())),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: bottomButton(
+          context,
+          title: 'Continue',
+          onPressed: () => Navigator.push(
+              context, SlideRoute(page: const ConfirmPaymentView())),
+        ),
       ),
     );
   }

@@ -2,7 +2,7 @@
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:workpulse_flutter_frontend/models/color_model.dart';
-import 'package:workpulse_flutter_frontend/views/home/home_view.dart';
+import 'package:workpulse_flutter_frontend/views/navigation/navigation_view.dart';
 
 class CompletePayment extends StatelessWidget {
   const CompletePayment({super.key});
@@ -12,8 +12,13 @@ class CompletePayment extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          onPressed: () => Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const HomePageView())),
+          onPressed: () => Navigator.pushAndRemoveUntil<dynamic>(
+            context,
+            MaterialPageRoute<dynamic>(
+              builder: (BuildContext context) => const NavigationView(),
+            ),
+            (route) => false,
+          ),
           icon: const Icon(Icons.close),
         ),
       ),
