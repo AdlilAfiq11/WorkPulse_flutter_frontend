@@ -1,27 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:workpulse_flutter_frontend/models/color_model.dart';
-import 'package:workpulse_flutter_frontend/models/service_model.dart';
-import 'package:workpulse_flutter_frontend/views/jobs/job_service_review.dart';
 
-class JobServiceView extends StatefulWidget {
-  const JobServiceView({super.key});
+class JobItemView extends StatefulWidget {
+  const JobItemView({super.key});
 
   @override
-  State<JobServiceView> createState() => _JobServiceViewState();
+  State<JobItemView> createState() => _JobItemViewState();
 }
 
-class _JobServiceViewState extends State<JobServiceView> {
+class _JobItemViewState extends State<JobItemView> {
   TextEditingController search = TextEditingController();
-  List<String> services = [
-    "AC installation 1.0 HP",
-    "AC installation 1.5 HP",
-    "AC installation 2.0 HP",
-    "AC installation 2.5 HP",
-    "Amway service",
-    "Wall mount servicing",
-    "Electric water heater installation",
-    "Fan installation",
-    "Delivery",
+  List<String> items = [
+    "MITSUBISHI",
+    "MITSUBISHI",
+    "SAMSUNG",
+    "SAMSUNG",
+    "PANASONIC",
+    "PANASONIC",
+  ];
+
+  List<String> itemSubs = [
+    "MS-JR10VF",
+    "MS-JR13VF",
+    "AR-10BYEAAWKNME",
+    "AR-18BYFAMWKNME",
+    "FM15EXVBKQH",
+    "FM15EXVBKQH",
   ];
 
   @override
@@ -30,7 +34,7 @@ class _JobServiceViewState extends State<JobServiceView> {
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Add New Service', style: TextStyle(fontSize: 20)),
+          title: const Text('Add new item', style: TextStyle(fontSize: 20)),
           backgroundColor: AppColor.blueViolet,
           foregroundColor: Colors.white,
           elevation: 5,
@@ -43,7 +47,7 @@ class _JobServiceViewState extends State<JobServiceView> {
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16),
                 child: Text(
-                  'Select a service',
+                  'Select item',
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
               ),
@@ -53,7 +57,7 @@ class _JobServiceViewState extends State<JobServiceView> {
                 child: TextField(
                   controller: search,
                   decoration: InputDecoration(
-                    hintText: "Select service",
+                    hintText: "Search item",
                     hintStyle: const TextStyle(
                       color: Colors.grey,
                       fontWeight: FontWeight.normal,
@@ -76,20 +80,10 @@ class _JobServiceViewState extends State<JobServiceView> {
               const SizedBox(height: 10),
               Expanded(
                 child: ListView.builder(
-                  itemCount: services.length,
+                  itemCount: items.length,
                   itemBuilder: (context, index) {
                     return InkWell(
-                      onTap: () => Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) => JobServiceReviewView(
-                            service: Service(
-                              name: services[index],
-                              description:
-                                  "Installation for 1.0HP Wall Mount Split Unit Air Conditioner Installation for 1.0HP Wall Mount Split Unit Air Conditioner",
-                            ),
-                          ),
-                        ),
-                      ),
+                      onTap: () {},
                       child: Container(
                         padding: const EdgeInsets.symmetric(vertical: 10),
                         decoration: const BoxDecoration(
@@ -103,9 +97,18 @@ class _JobServiceViewState extends State<JobServiceView> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
-                              services[index],
-                              style: const TextStyle(fontSize: 16),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  items[index],
+                                  style: const TextStyle(fontSize: 16),
+                                ),
+                                Text(
+                                  itemSubs[index],
+                                  style: const TextStyle(color: Colors.grey),
+                                ),
+                              ],
                             ),
                             const Icon(Icons.radio_button_off),
                           ],

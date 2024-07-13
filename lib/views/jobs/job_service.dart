@@ -30,7 +30,7 @@ class _JobServiceViewState extends State<JobServiceView> {
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Add New Service', style: TextStyle(fontSize: 20)),
+          title: const Text('Add new service', style: TextStyle(fontSize: 20)),
           backgroundColor: AppColor.blueViolet,
           foregroundColor: Colors.white,
           elevation: 5,
@@ -53,7 +53,7 @@ class _JobServiceViewState extends State<JobServiceView> {
                 child: TextField(
                   controller: search,
                   decoration: InputDecoration(
-                    hintText: "Select service",
+                    hintText: "Search service",
                     hintStyle: const TextStyle(
                       color: Colors.grey,
                       fontWeight: FontWeight.normal,

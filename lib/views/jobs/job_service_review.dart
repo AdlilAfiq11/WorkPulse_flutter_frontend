@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:workpulse_flutter_frontend/models/color_model.dart';
 import 'package:workpulse_flutter_frontend/models/service_model.dart';
+import 'package:workpulse_flutter_frontend/views/jobs/job_item.dart';
 
 class JobServiceReviewView extends StatefulWidget {
   final Service service;
@@ -27,7 +28,7 @@ class _JobServiceReviewViewState extends State<JobServiceReviewView> {
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Add New Service', style: TextStyle(fontSize: 20)),
+          title: const Text('Add new service', style: TextStyle(fontSize: 20)),
           backgroundColor: AppColor.blueViolet,
           foregroundColor: Colors.white,
           elevation: 5,
@@ -177,7 +178,11 @@ class _JobServiceReviewViewState extends State<JobServiceReviewView> {
                       ),
                     ),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => const JobItemView(),
+                        ),
+                      ),
                       child: Row(children: [
                         Icon(
                           Icons.add_circle_outline,
