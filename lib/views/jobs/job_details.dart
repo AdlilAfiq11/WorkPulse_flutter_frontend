@@ -3,6 +3,7 @@ import 'package:workpulse_flutter_frontend/components/reschedule_component.dart'
 import 'package:workpulse_flutter_frontend/models/color_model.dart';
 import 'package:workpulse_flutter_frontend/utils/main_utils.dart';
 import 'package:workpulse_flutter_frontend/views/jobs/job_pos.dart';
+import 'package:workpulse_flutter_frontend/views/jobs/job_service.dart';
 
 //TODO: Create custm card for service
 
@@ -34,11 +35,10 @@ class _JobDetailsViewState extends State<JobDetailsView> {
             borderRadius: BorderRadius.circular(5),
           ),
           disabledBackgroundColor: const Color.fromRGBO(31, 48, 94, .5),
-          elevation: 5,
         ),
         onPressed: photoAlert,
         child: const Text(
-          'Start Job',
+          'Start job',
           style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
         ),
       ),
@@ -50,7 +50,7 @@ class _JobDetailsViewState extends State<JobDetailsView> {
         title: const Text('20221128-757145', style: TextStyle(fontSize: 18)),
         backgroundColor: AppColor.blueViolet,
         foregroundColor: Colors.white,
-        scrolledUnderElevation: 5,
+        elevation: 5,
       ),
       body: SingleChildScrollView(
         child: Column(children: [
@@ -65,7 +65,7 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     const Text(
-                      'Job Details',
+                      'Job Detail',
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
@@ -202,7 +202,11 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () => Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const JobServiceView(),
+                      ),
+                    ),
                     child: Row(children: [
                       Icon(
                         Icons.add_circle_outline,
@@ -211,7 +215,7 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                       ),
                       const SizedBox(width: 6),
                       Text(
-                        'Add Service',
+                        'Add service',
                         style: TextStyle(
                           color: AppColor.mediumBlue,
                           fontSize: 16,
