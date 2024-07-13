@@ -1,4 +1,3 @@
-import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:workpulse_flutter_frontend/components/reschedule_component.dart';
 import 'package:workpulse_flutter_frontend/models/color_model.dart';
@@ -15,382 +14,295 @@ class JobDetailsView extends StatefulWidget {
 }
 
 class _JobDetailsViewState extends State<JobDetailsView> {
-  // Start Job Button
-  Widget startButton() => Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            side: BorderSide(
-              color: AppColor.blueViolet,
-            ),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(5),
-            ),
-            minimumSize: const Size(120, 50),
-            backgroundColor: AppColor.blueViolet,
-            disabledBackgroundColor: const Color.fromRGBO(31, 48, 94, .5),
-            elevation: 5,
-          ),
-          onPressed: photoAlert,
-          child: const Text(
-            'Start Job',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 17,
-            ),
-          ),
-        ),
-      );
-
   @override
   Widget build(BuildContext context) {
+    // Start Job Button
+    Widget startButton = Container(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+      decoration: const BoxDecoration(
+        color: Colors.white,
+        border: Border(
+          top: BorderSide(color: Color.fromRGBO(241, 241, 241, 1)),
+        ),
+      ),
+      child: TextButton(
+        style: TextButton.styleFrom(
+          foregroundColor: Colors.white,
+          backgroundColor: AppColor.blueViolet,
+          padding: const EdgeInsets.symmetric(vertical: 16),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(5),
+          ),
+          disabledBackgroundColor: const Color.fromRGBO(31, 48, 94, .5),
+          elevation: 5,
+        ),
+        onPressed: photoAlert,
+        child: const Text(
+          'Start Job',
+          style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+        ),
+      ),
+    );
+
     return Scaffold(
       backgroundColor: AppColor.lightGrey,
       appBar: AppBar(
-        title: const Text(
-          '20221128-757145',
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 18,
-          ),
-        ),
-        iconTheme: const IconThemeData(
-          color: Colors.white,
-        ),
+        title: const Text('20221128-757145', style: TextStyle(fontSize: 18)),
         backgroundColor: AppColor.blueViolet,
+        foregroundColor: Colors.white,
         scrolledUnderElevation: 5,
       ),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Container(
-              color: Colors.white,
-              width: double.infinity,
-              child: Padding(
-                padding: const EdgeInsets.all(13),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        child: Column(children: [
+          Container(
+            color: Colors.white,
+            width: double.infinity,
+            padding: const EdgeInsets.symmetric(vertical: 13, horizontal: 16),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(right: 5),
-                      child: Row(
-                        children: [
-                          const Expanded(
-                            flex: 8,
-                            child: Text(
-                              'Job Details',
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                          Expanded(
-                            flex: 2,
-                            child: Container(
-                              height: 30,
-                              decoration: BoxDecoration(
-                                color: Colors.blue.shade100,
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Center(
-                                  child: Text(
-                                'On-going',
-                                style: TextStyle(color: Colors.blue.shade700),
-                              )),
-                            ),
-                          ),
-                        ],
+                    const Text(
+                      'Job Details',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const SizedBox(height: 15),
-                    Row(
-                      children: [
-                        const Expanded(
-                          flex: 1,
-                          child: Icon(
-                            Icons.watch_later_outlined,
-                            color: Colors.grey,
-                          ),
-                        ),
-                        const Expanded(
-                          flex: 8,
-                          child: Text(
-                            'Today, 11:00 P.M',
-                            style: TextStyle(fontSize: 15),
-                          ),
-                        ),
-                        Expanded(
-                          flex: 4,
-                          child: TextButton(
-                            onPressed: manageOrder,
-                            child: Text(
-                              'Reschedule',
-                              style: TextStyle(
-                                color: AppColor.electricIndigo,
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 5),
-                    Row(
-                      children: [
-                        const Expanded(
-                          flex: 1,
-                          child: Icon(
-                            Icons.location_on,
-                            color: Colors.grey,
-                          ),
-                        ),
-                        const Expanded(
-                          flex: 8,
-                          child: Text(
-                            'Desa Green Serviced Apartment, Taman Desa, 58000 Kuala Lumpur',
-                            style: TextStyle(fontSize: 15),
-                          ),
-                        ),
-                        const SizedBox(height: 15),
-                        Expanded(
-                          flex: 3,
-                          child: CircleAvatar(
-                            radius: 25,
-                            backgroundColor: AppColor.lightPurple,
-                            child: Icon(
-                              Icons.map_outlined,
-                              size: 25,
-                              color: AppColor.electricIndigo,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            const SizedBox(height: 15),
-            Container(
-              color: Colors.white,
-              width: double.infinity,
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(13, 0, 13, 13),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        const Text(
-                          'Customer Details',
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        TextButton(
-                          onPressed: () {},
-                          child: Text(
-                            'View Details',
-                            style: TextStyle(
-                              color: AppColor.electricIndigo,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        const Expanded(
-                          flex: 1,
-                          child: Icon(
-                            FluentIcons.book_contacts_24_filled,
-                            color: Colors.grey,
-                          ),
-                        ),
-                        const Expanded(
-                          flex: 8,
-                          child: Text(
-                            'Lee Hong Kee',
-                            style: TextStyle(fontSize: 15),
-                          ),
-                        ),
-                        Expanded(
-                          flex: 3,
-                          child: CircleAvatar(
-                            radius: 25,
-                            backgroundColor: AppColor.lightPurple,
-                            child: Icon(
-                              Icons.call,
-                              size: 25,
-                              color: AppColor.electricIndigo,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            const SizedBox(height: 15),
-            Container(
-              color: Colors.white,
-              width: double.infinity,
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(13, 0, 13, 13),
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        const Text(
-                          'Service',
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        TextButton(
-                          onPressed: () {},
-                          child: Text(
-                            'Add Service',
-                            style: TextStyle(
-                              color: AppColor.electricIndigo,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            const SizedBox(height: 15),
-            Container(
-              color: Colors.white,
-              width: double.infinity,
-              child: Padding(
-                padding: const EdgeInsets.all(13),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    const Align(
-                      alignment: Alignment.centerLeft,
+                    Container(
+                      alignment: Alignment.center,
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      height: 30,
+                      decoration: BoxDecoration(
+                        color: AppColor.aliceBlue,
+                        borderRadius: BorderRadius.circular(5),
+                      ),
                       child: Text(
-                        'Remark',
+                        'On-going',
+                        style: TextStyle(color: AppColor.blueNCS),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 16),
+                Row(children: [
+                  const Icon(Icons.access_time, color: Colors.grey),
+                  const SizedBox(width: 10),
+                  const Expanded(
+                    child: Text(
+                      'Today, 11:00 P.M',
+                      style: TextStyle(fontSize: 15),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: manageOrder,
+                    child: Text(
+                      'Reschedule',
+                      style: TextStyle(
+                        color: AppColor.mediumBlue,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ]),
+                const SizedBox(height: 16),
+                Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                  const Icon(Icons.location_on_outlined, color: Colors.grey),
+                  const SizedBox(width: 10),
+                  const Expanded(
+                    child: Text(
+                      'Desa Green Serviced Apartment, Taman Desa, 58000 Kuala Lumpur',
+                      style: TextStyle(fontSize: 15),
+                    ),
+                  ),
+                  const SizedBox(width: 10),
+                  TextButton(
+                    onPressed: () {},
+                    style: TextButton.styleFrom(
+                      foregroundColor: AppColor.mediumBlue,
+                      backgroundColor: AppColor.lightPurple,
+                      minimumSize: const Size(0, 0),
+                      shape: const CircleBorder(),
+                    ),
+                    child: const Icon(Icons.near_me_outlined, size: 28),
+                  ),
+                ]),
+              ],
+            ),
+          ),
+          const SizedBox(height: 15),
+          Container(
+            color: Colors.white,
+            width: double.infinity,
+            padding: const EdgeInsets.fromLTRB(16, 13, 16, 13),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      'Customer Details',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {},
+                      child: Text(
+                        'View Details',
                         style: TextStyle(
+                          color: AppColor.mediumBlue,
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: Text(
-                            'Reference',
-                            style: TextStyle(
-                                fontSize: 15, color: Colors.grey.shade700),
-                          ),
-                        ),
-                        const Align(
-                          alignment: Alignment.centerRight,
-                          child: Text(
-                            'Invoice no. 138451925',
-                            style: TextStyle(
-                              fontSize: 15,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
                   ],
                 ),
-              ),
+                const SizedBox(height: 16),
+                Row(children: [
+                  const Icon(
+                    Icons.perm_contact_cal_outlined,
+                    color: Colors.grey,
+                  ),
+                  const SizedBox(width: 10),
+                  const Expanded(
+                    child: Text('Lee Hong Kee', style: TextStyle(fontSize: 15)),
+                  ),
+                  TextButton(
+                    onPressed: () {},
+                    style: TextButton.styleFrom(
+                      foregroundColor: AppColor.mediumBlue,
+                      backgroundColor: AppColor.lightPurple,
+                      minimumSize: const Size(0, 0),
+                      shape: const CircleBorder(),
+                    ),
+                    child: const Icon(Icons.phone_in_talk_outlined, size: 28),
+                  ),
+                ]),
+              ],
             ),
-            const SizedBox(height: 15),
-            Container(
-              color: Colors.white,
-              width: double.infinity,
-              child: Padding(
-                padding: const EdgeInsets.all(13),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    const Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        'Payment Details',
+          ),
+          const SizedBox(height: 15),
+          Container(
+            color: Colors.white,
+            width: double.infinity,
+            padding: const EdgeInsets.fromLTRB(16, 13, 16, 13),
+            child: Column(children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    'Service',
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                  GestureDetector(
+                    onTap: () {},
+                    child: Row(children: [
+                      Icon(
+                        Icons.add_circle_outline,
+                        size: 20,
+                        color: AppColor.mediumBlue,
+                      ),
+                      const SizedBox(width: 6),
+                      Text(
+                        'Add Service',
                         style: TextStyle(
+                          color: AppColor.mediumBlue,
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'Payment Method',
-                          style: TextStyle(
-                            fontSize: 15,
-                            color: Colors.grey.shade700,
-                          ),
-                        ),
-                        const Text(
-                          'Company Billed',
-                          style: TextStyle(
-                            fontSize: 15,
-                          ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'Total',
-                          style: TextStyle(
-                            fontSize: 15,
-                            color: Colors.grey.shade700,
-                          ),
-                        ),
-                        const Text(
-                          'RM 570',
-                          style: TextStyle(
-                            fontSize: 15,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
+                    ]),
+                  ),
+                ],
+              ),
+            ]),
+          ),
+          const SizedBox(height: 15),
+          Container(
+            color: Colors.white,
+            width: double.infinity,
+            padding: const EdgeInsets.fromLTRB(16, 13, 16, 13),
+            child: Column(children: [
+              const Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'Remark',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
               ),
+              const SizedBox(height: 16),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Reference',
+                    style: TextStyle(fontSize: 15, color: Colors.grey.shade700),
+                  ),
+                  const Text(
+                    'Invoice no. 138451925',
+                    style: TextStyle(fontSize: 15),
+                  ),
+                ],
+              ),
+            ]),
+          ),
+          const SizedBox(height: 15),
+          Container(
+            color: Colors.white,
+            width: double.infinity,
+            padding: const EdgeInsets.fromLTRB(16, 13, 16, 13),
+            child: Column(children: [
+              const Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'Payment Details',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
+              ),
+              const SizedBox(height: 16),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Payment Method',
+                    style: TextStyle(fontSize: 15, color: Colors.grey.shade700),
+                  ),
+                  const Text('Company Billed', style: TextStyle(fontSize: 15)),
+                ],
+              ),
+              const SizedBox(height: 16),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Total',
+                    style: TextStyle(fontSize: 15, color: Colors.grey.shade700),
+                  ),
+                  const Text('RM 570', style: TextStyle(fontSize: 15)),
+                ],
+              ),
+            ]),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 15, bottom: 15),
+            child: TextButton(
+              onPressed: () {},
+              style: TextButton.styleFrom(
+                foregroundColor: Colors.red.shade400,
+              ),
+              child: const Text('Cancel Job', style: TextStyle(fontSize: 17)),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 15, bottom: 15),
-              child: TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    'Cancel Job',
-                    style: TextStyle(
-                      fontSize: 17,
-                      color: Colors.red.shade400,
-                    ),
-                  )),
-            ),
-          ],
-        ),
+          ),
+        ]),
       ),
-      bottomNavigationBar: startButton(),
+      bottomNavigationBar: startButton,
     );
   }
 
