@@ -1,3 +1,6 @@
+import 'dart:typed_data';
+import 'dart:ui' as ui;
+
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_signaturepad/signaturepad.dart';
 import 'package:workpulse_flutter_frontend/models/color_model.dart';
@@ -14,6 +17,12 @@ class _SignaturePadState extends State<SignaturePad> {
   final GlobalKey<SfSignaturePadState> signaturePadKey = GlobalKey();
 
   bool? _signature;
+
+  Future<ByteData?> _saveSignature() async {
+    final data = await signaturePadKey.currentState!.toImage(pixelRatio: 3.0);
+    final bytes = await data.toByteData(format: ui.ImageByteFormat.png);
+    return bytes;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -82,15 +91,14 @@ class _SignaturePadState extends State<SignaturePad> {
           ],
         ),
       ),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: bottomButton(
-          context,
-          title: 'Submit',
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
+      bottomNavigationBar: bottomButton(
+        context,
+        title: 'Submit',
+        onPressed: () async {
+          ByteData? signature = await _saveSignature();
+
+          Navigator.of(context).pop(signature);
+        },
       ),
     );
   }

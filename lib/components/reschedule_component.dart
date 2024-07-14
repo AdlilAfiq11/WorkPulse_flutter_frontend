@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:intl/intl.dart';
 import 'package:workpulse_flutter_frontend/models/color_model.dart';
-import 'package:workpulse_flutter_frontend/utils/main_utils.dart';
 
-//TODO: Select Time
 // Reschedule Order Component
 class RescheduleOrder extends StatefulWidget {
   const RescheduleOrder({super.key});
@@ -12,11 +12,9 @@ class RescheduleOrder extends StatefulWidget {
 }
 
 class _RescheduleOrderState extends State<RescheduleOrder> {
-  //Testing purpose
-  final dynamic _time = '10.00 P.M';
-
   DateTime? currentDate;
-  DateTime? pickedDate;
+  String pickedDate = '';
+  String pickedTime = '00:00';
 
   @override
   void initState() {
@@ -33,9 +31,31 @@ class _RescheduleOrderState extends State<RescheduleOrder> {
     );
     if (date != null && date.isAfter(currentDate!)) {
       setState(() {
-        pickedDate = date;
+        pickedDate = DateFormat.yMMMMd().format(date);
       });
     }
+  }
+
+  _pickTime() async {
+    showCupertinoModalPopup(
+      context: context,
+      builder: (BuildContext context) => Container(
+        color: Colors.white,
+        height: 200,
+        width: double.infinity,
+        child: CupertinoDatePicker(
+          backgroundColor: Colors.white,
+          initialDateTime: currentDate,
+          onDateTimeChanged: (DateTime newTime) {
+            setState(() {
+              pickedTime = DateFormat.Hms().format(newTime);
+            });
+          },
+          use24hFormat: true,
+          mode: CupertinoDatePickerMode.time,
+        ),
+      ),
+    );
   }
 
   @override
@@ -70,10 +90,7 @@ class _RescheduleOrderState extends State<RescheduleOrder> {
                 children: [
                   const Text(
                     'Please select a date and time to reschedule',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                    ),
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                   ),
                   const SizedBox(height: 20),
                   Text(
@@ -87,38 +104,50 @@ class _RescheduleOrderState extends State<RescheduleOrder> {
                   ListTile(
                     onTap: _pickDate,
                     shape: RoundedRectangleBorder(
-                      side: BorderSide(
-                        color: Colors.grey.shade400,
-                        width: 0.5,
-                      ),
+                      side: BorderSide(color: Colors.grey.shade400, width: 0.5),
                       borderRadius: BorderRadius.circular(5),
                     ),
                     leading: const Icon(Icons.calendar_today_outlined),
-                    title: pickedDate != null
-                        ? Text(pickedDate.toString())
+                    title: pickedDate != ''
+                        ? Text(pickedDate)
                         : const Text('Select Date'),
                     trailing: const Icon(Icons.keyboard_arrow_down_outlined),
                   ),
                   const SizedBox(height: 20),
                   Text(
                     'Time',
-                    style: TextStyle(
-                      fontSize: 13,
-                      color: Colors.grey.shade500,
-                    ),
+                    style: TextStyle(fontSize: 13, color: Colors.grey.shade500),
                   ),
                   const SizedBox(height: 10),
                   ListTile(
-                    onTap: () {},
+                    onTap: _pickTime,
                     shape: RoundedRectangleBorder(
-                      side: BorderSide(
-                        color: Colors.grey.shade400,
-                        width: 0.5,
-                      ),
+                      side: BorderSide(color: Colors.grey.shade400, width: 0.5),
                       borderRadius: BorderRadius.circular(5),
                     ),
                     leading: const Icon(Icons.access_time_outlined),
-                    title: Text(_time.toString()),
+                    title: Text(pickedTime),
+                  ),
+                  const SizedBox(height: 30),
+                  TextButton(
+                    style: TextButton.styleFrom(
+                      foregroundColor: Colors.white,
+                      backgroundColor: AppColor.blueViolet,
+                      padding: const EdgeInsets.symmetric(vertical: 16),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5)),
+                      minimumSize: const Size(double.infinity, 50),
+                      disabledBackgroundColor:
+                          const Color.fromRGBO(31, 48, 94, .5),
+                      elevation: 5,
+                    ),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: const Text(
+                      'Confirm',
+                      style: TextStyle(color: Colors.white, fontSize: 17),
+                    ),
                   ),
                 ],
               ),
@@ -161,7 +190,8 @@ class CancelOrder extends StatelessWidget {
       ),
       body: Column(
         children: [
-          SizedBox(
+          Container(
+            color: Colors.white,
             width: double.infinity,
             child: Padding(
               padding: const EdgeInsets.fromLTRB(15, 15, 15, 0),
@@ -170,18 +200,12 @@ class CancelOrder extends StatelessWidget {
                 children: [
                   const Text(
                     'Please provide a reasonable reason to cancel this order',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                    ),
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                   ),
                   const SizedBox(height: 10),
                   Text(
                     'Cancellation remark',
-                    style: TextStyle(
-                      fontSize: 13,
-                      color: Colors.grey.shade700,
-                    ),
+                    style: TextStyle(fontSize: 13, color: Colors.grey.shade700),
                   ),
                   Form(
                     key: _formKey,
@@ -200,16 +224,12 @@ class CancelOrder extends StatelessWidget {
                           hintText: 'Describe your reason to cancel',
                           hintStyle: const TextStyle(fontSize: 14),
                           border: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Colors.grey.shade400,
-                            ),
+                            borderSide: BorderSide(color: Colors.grey.shade400),
                             borderRadius: BorderRadius.circular(5.0),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: AppColor.ceruleanBlue,
-                              width: 1.3,
-                            ),
+                                color: AppColor.ceruleanBlue, width: 1.3),
                             borderRadius: BorderRadius.circular(5),
                           ),
                         ),
@@ -223,24 +243,31 @@ class CancelOrder extends StatelessWidget {
                       ),
                     ),
                   ),
+                  const SizedBox(height: 10),
+                  TextButton(
+                    style: TextButton.styleFrom(
+                      foregroundColor: Colors.white,
+                      backgroundColor: AppColor.blueViolet,
+                      padding: const EdgeInsets.symmetric(vertical: 16),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5)),
+                      minimumSize: const Size(double.infinity, 50),
+                      disabledBackgroundColor:
+                          const Color.fromRGBO(31, 48, 94, .5),
+                      elevation: 5,
+                    ),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: const Text(
+                      'Confirm',
+                      style: TextStyle(color: Colors.white, fontSize: 17),
+                    ),
+                  ),
                 ],
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(13),
-            child: bottomButton(
-              context,
-              title: 'Confirm',
-              onPressed: () {
-                if (_formKey.currentState!.validate()) {
-                  Navigator.pop(context);
-                } else {
-                  _remark.text = '';
-                }
-              },
-            ),
-          )
         ],
       ),
     );
