@@ -1,4 +1,13 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.workpulse_flutter_frontend">
+    <uses-permission android:name="android.permission.CAMERA" />
+    <queries>
+        <!-- If your app makes calls -->
+    <intent>
+        <action android:name="android.intent.action.DIAL" />
+        <data android:scheme="tel" />
+    </intent>
+    </queries>
     <application
         android:label="workpulse_flutter_frontend"
         android:name="${applicationName}"
