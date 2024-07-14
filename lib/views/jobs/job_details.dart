@@ -30,9 +30,7 @@ class _JobDetailsViewState extends State<JobDetailsView> {
           foregroundColor: Colors.white,
           backgroundColor: AppColor.blueViolet,
           padding: const EdgeInsets.symmetric(vertical: 16),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(5),
-          ),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
           disabledBackgroundColor: const Color.fromRGBO(31, 48, 94, .5),
           elevation: 5,
         ),
@@ -379,9 +377,9 @@ class _JobDetailsViewState extends State<JobDetailsView> {
     );
   }
 
-  //TODO:Change color to white
   manageOrder() {
     return showModalBottomSheet(
+      backgroundColor: Colors.white,
       showDragHandle: true,
       elevation: 5.0,
       context: context,
@@ -400,8 +398,11 @@ class _JobDetailsViewState extends State<JobDetailsView> {
               const SizedBox(height: 18),
               ListTile(
                 visualDensity: VisualDensity.compact,
-                onTap: () => Navigator.push(
-                    context, SlideRoute(page: const RescheduleOrder())),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.push(
+                      context, SlideRoute(page: const RescheduleOrder()));
+                },
                 title: const Text('Reschedule Order'),
               ),
               Divider(

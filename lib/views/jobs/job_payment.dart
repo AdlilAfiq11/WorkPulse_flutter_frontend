@@ -204,24 +204,21 @@ class _ConfirmPaymentViewState extends State<ConfirmPaymentView> {
           Container(
             color: Colors.white,
             width: double.infinity,
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: bottomButton(
-                context,
-                title: 'Continue',
-                onPressed: _method != PaymentMethod.notSelected
-                    ? () => Navigator.push(
+            child: bottomButton(
+              context,
+              title: 'Continue',
+              onPressed: _method != PaymentMethod.notSelected
+                  ? () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const CompletePayment()))
+                  : () {
+                      customShowToast(
                         context,
-                        MaterialPageRoute(
-                            builder: (context) => const CompletePayment()))
-                    : () {
-                        customShowToast(
-                          context,
-                          text: "Please select payment method before continue.",
-                          color: Colors.red.shade300,
-                        );
-                      },
-              ),
+                        text: "Please select payment method before continue.",
+                        color: Colors.red.shade300,
+                      );
+                    },
             ),
           ),
         ],

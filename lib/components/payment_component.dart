@@ -1,4 +1,3 @@
-// View complete payment page
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:workpulse_flutter_frontend/models/color_model.dart';
@@ -78,10 +77,9 @@ class CompletePayment extends StatelessWidget {
                       IconButton.filled(
                         style: ButtonStyle(
                             backgroundColor:
-                                MaterialStatePropertyAll(AppColor.lightGrey),
-                            minimumSize: const MaterialStatePropertyAll(
-                              Size(60, 60),
-                            )),
+                                WidgetStatePropertyAll(AppColor.lightGrey),
+                            minimumSize:
+                                const WidgetStatePropertyAll(Size(60, 60))),
                         iconSize: 25,
                         color: AppColor.electricIndigo,
                         onPressed: () {},
@@ -102,10 +100,9 @@ class CompletePayment extends StatelessWidget {
                       IconButton.filled(
                         style: ButtonStyle(
                             backgroundColor:
-                                MaterialStatePropertyAll(AppColor.lightGrey),
-                            minimumSize: const MaterialStatePropertyAll(
-                              Size(60, 60),
-                            )),
+                                WidgetStatePropertyAll(AppColor.lightGrey),
+                            minimumSize:
+                                const WidgetStatePropertyAll(Size(60, 60))),
                         iconSize: 25,
                         color: AppColor.electricIndigo,
                         onPressed: () {},
@@ -126,10 +123,9 @@ class CompletePayment extends StatelessWidget {
                       IconButton.filled(
                         style: ButtonStyle(
                             backgroundColor:
-                                MaterialStatePropertyAll(AppColor.lightGrey),
-                            minimumSize: const MaterialStatePropertyAll(
-                              Size(60, 60),
-                            )),
+                                WidgetStatePropertyAll(AppColor.lightGrey),
+                            minimumSize:
+                                const WidgetStatePropertyAll(Size(60, 60))),
                         iconSize: 25,
                         color: AppColor.electricIndigo,
                         onPressed: () {},
